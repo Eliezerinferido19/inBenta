@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "638016193446",
+    "project_id": "inbenta-40b87",
+    "storage_bucket": "inbenta-40b87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638016193446:android:f299603402adce98588567",
+        "android_client_info": {
+          "package_name": "com.android.application",
+          "package_name": "com.test.inbenta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDbWYmhdXT7WvPiPLQ0WX6-FVO8_d46s0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
