@@ -14,7 +14,12 @@ public class CreateAccScreen extends AppCompatActivity {
         setContentView(R.layout.activity_create_acc_screen);
     }
 
-
+    // back to introductory screen
+    public void tointroductoryscreen(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    //to login screen
     public void tologin(View view) {
         Intent intent = new Intent(this, LoginScreen.class);
         startActivity(intent);

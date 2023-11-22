@@ -14,8 +14,21 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
     }
 
+    //back to introductory screen
+    public void tointroductoryscreen(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    //go to home screen
+    public void tohomescreen(View view) {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
+    //go to create account screen
     public void tocreateaccount(View view) {
         Intent intent = new Intent(this, CreateAccScreen.class);
         startActivity(intent);
     }
+
+
 }

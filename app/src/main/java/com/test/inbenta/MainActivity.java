@@ -14,17 +14,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-// to go to any screen <<<<
+    //to login screen
     public void tologin(View view) {
         Intent intent = new Intent(this,LoginScreen.class);
         startActivity(intent);
     }
+    //to create account screen
     public void tocreateaccount(View view) {
         Intent intent = new Intent(this,CreateAccScreen.class);
         startActivity(intent);
     }
-// end >>>>
 
 
-// 49497F color code
+
+// 49497F color scheme
 }
