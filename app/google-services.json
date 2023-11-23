@@ -7,9 +7,8 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:638016193446:android:f299603402adce98588567",
+        "mobilesdk_app_id": "1:638016193446:android:a869bda362371679588567",
         "android_client_info": {
-          "package_name": "com.android.application",
           "package_name": "com.test.inbenta"
         }
       },
