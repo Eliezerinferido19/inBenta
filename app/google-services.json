@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:638016193446:android:5fd17c64b8ff0e62588567",
+        "android_client_info": {
+          "package_name": "com.examination.inbenta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDbWYmhdXT7WvPiPLQ0WX6-FVO8_d46s0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:638016193446:android:a869bda362371679588567",
         "android_client_info": {
           "package_name": "com.test.inbenta"
