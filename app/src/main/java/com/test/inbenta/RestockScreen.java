@@ -14,6 +14,12 @@ public class RestockScreen extends AppCompatActivity {
         setContentView(R.layout.activity_restock_screen);
     }
 
+    //to View restock selected items
+    public void torestockselecteditems(View view) {
+        Intent intent = new Intent(this, RestockSelectedItems.class);
+        startActivity(intent);
+    }
+
     //Menu option start
     //to Home screen
     public void tohomescreen(View view) {

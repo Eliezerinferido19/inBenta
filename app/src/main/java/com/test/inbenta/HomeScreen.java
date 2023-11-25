@@ -14,7 +14,31 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
     }
 
-    //Menu option start
+
+
+
+
+    //to today view sales screen
+    public void totodayviewsalesscreen(View view) {
+        Intent intent = new Intent(this, ViewSalesScreen.class);
+        startActivity(intent);
+    }
+    //to week view sales screen
+    public void toweekviewsalesscreen(View view) {
+        Intent intent = new Intent(this, ViewSalesScreen.class);
+        startActivity(intent);
+    }
+    //to month view sales screen
+    public void tomonthviewsalesscreen(View view) {
+        Intent intent = new Intent(this, ViewSalesScreen.class);
+        startActivity(intent);
+    }
+
+
+
+
+
+//Menu option start
     //to Home screen
     public void tohomescreen(View view) {
         Intent intent = new Intent(this, HomeScreen.class);
@@ -40,5 +64,5 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileScreen.class);
         startActivity(intent);
     }
-    // Menu option end >>>
+// Menu option end >>>
 }

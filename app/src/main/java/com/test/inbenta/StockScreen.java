@@ -14,6 +14,12 @@ public class StockScreen extends AppCompatActivity {
         setContentView(R.layout.activity_stock_screen);
     }
 
+    //to stock edit screen
+    public void tostockeditscreen(View view) {
+        Intent intent = new Intent(this, StockEditScreen.class);
+        startActivity(intent);
+    }
+
     //Menu option start
     //to Home screen
     public void tohomescreen(View view) {

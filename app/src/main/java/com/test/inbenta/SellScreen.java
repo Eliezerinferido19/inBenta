@@ -14,6 +14,12 @@ public class SellScreen extends AppCompatActivity {
         setContentView(R.layout.activity_sell_screen);
     }
 
+    //to Sell selected screen
+    public void tosellselectedscreen(View view) {
+        Intent intent = new Intent(this, SellSelectedItems.class);
+        startActivity(intent);
+    }
+
     //Menu option start
     //to Home screen
     public void tohomescreen(View view) {

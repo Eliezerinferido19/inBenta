@@ -8,6 +8,7 @@
     tools:context=".ProfileScreen">
 
     <!--    layout backgroud start <<<<       -->
+<!--    Header-->
     <TextView
         android:id="@+id/Header"
         android:layout_width="0dp"
@@ -16,16 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Menu"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:background="#49497F"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="82dp"
@@ -36,8 +27,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_27" />
+<!--    HEADER-->
 
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="80dp"
+        android:onClick="torestockselecteditems"
+        android:text="View Selected Items"
+        android:textColor="#595858"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--    FOOTER-->
     <!--Menu Buttons-->
+    <TextView
+        android:id="@+id/Menu"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="#49497F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/home_btn"
         android:layout_width="50dp"
@@ -96,5 +112,6 @@
         app:srcCompat="@drawable/profile" />
     <!--Menu buttons-->
     <!-- Layout Background end >>>>> -->
+<!--    FOOTER-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
