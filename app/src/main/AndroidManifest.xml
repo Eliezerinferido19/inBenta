@@ -13,6 +13,18 @@
         android:theme="@style/Theme.InBenta"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileScreen"
+            android:exported="false" />
+        <activity
+            android:name=".StockScreen"
+            android:exported="false" />
+        <activity
+            android:name=".SellScreen"
+            android:exported="false" />
+        <activity
+            android:name=".RestockScreen"
+            android:exported="false" />
+        <activity
             android:name=".HomeScreen"
             android:exported="false" />
         <activity
