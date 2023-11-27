@@ -22,7 +22,7 @@
         android:id="@+id/button4"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#49497F"
         android:fontFamily="@font/montserrat_bold"
         android:onClick="tocreateaccount"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:strokeColor="@color/white"
         app:strokeWidth="2dp" />
 
@@ -60,14 +60,14 @@
         app:srcCompat="@drawable/rectangle_27" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/username"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:fontFamily="@font/montserrat_light"
         android:gravity="center"
-        android:hint="Username"
+        android:hint="@string/username"
         android:inputType="text"
         android:textColorHint="@color/white"
         android:textSize="20sp"
@@ -77,37 +77,46 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password"
         android:layout_width="230dp"
         android:layout_height="46dp"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:fontFamily="@font/montserrat_light"
         android:gravity="center"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textColorHint="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="230dp"
         android:layout_height="46dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/montserrat_bold"
-        android:onClick="tohomescreen"
         android:text="Login"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView4"
