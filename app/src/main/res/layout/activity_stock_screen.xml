@@ -26,6 +26,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to register"
+        android:textColor="@color/white"
+        android:backgroundTint="#49497F"
+        android:onClick="toregisternewitemscreen"
+        app:layout_constraintEnd_toEndOf="@+id/Header"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Menu Buttons-->
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="82dp"
@@ -37,7 +50,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_27" />
 
-    <!--Menu Buttons-->
     <ImageView
         android:id="@+id/home_btn"
         android:layout_width="50dp"
@@ -94,6 +106,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/profile" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="330dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Header" />
 
     <!--Menu buttons-->
     <!-- Layout Background end >>>>> -->

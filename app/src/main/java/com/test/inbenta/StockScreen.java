@@ -19,6 +19,10 @@ public class StockScreen extends AppCompatActivity {
         Intent intent = new Intent(this, StockEditScreen.class);
         startActivity(intent);
     }
+    public void toregisternewitemscreen(View view) {
+        Intent intent = new Intent(this, RegisterNewItem.class);
+        startActivity(intent);
+    }
 
     //Menu option start
     //to Home screen
