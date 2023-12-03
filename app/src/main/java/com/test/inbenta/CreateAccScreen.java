@@ -28,6 +28,7 @@ public class CreateAccScreen extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
 
+// for when logged in and did not sign out
     @Override
     public void onStart() {
         super.onStart();
@@ -56,24 +57,24 @@ public class CreateAccScreen extends AppCompatActivity {
         buttoncreateacc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                // Get the entered passwords
                 String username = String.valueOf(EditTextusername.getText());
                 String email = username + "@gmail.com";
+                //email = username + "@gmail.com";
                 String password = String.valueOf(EditTextpassword.getText());
                 String passwordConfirm = String.valueOf(EditTextpasswordConfirm.getText());
-                //email = username + "@gmail.com";
+
 
                 //if empty
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(CreateAccScreen.this, "Enter Username", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccScreen.this, "Username is Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    Toast.makeText(CreateAccScreen.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccScreen.this, "Password is Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(passwordConfirm)){
-                    Toast.makeText(CreateAccScreen.this, "Enter Password Confirm", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccScreen.this, "Password Confirm is Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

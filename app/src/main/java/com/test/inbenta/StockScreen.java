@@ -14,6 +14,11 @@ public class StockScreen extends AppCompatActivity {
         setContentView(R.layout.activity_stock_screen);
     }
 
+
+    public void toregisternewitem(View view) {
+        Intent intent = new Intent(this, RegisterNewItem.class);
+        startActivity(intent);
+    }
     //to stock edit screen
     public void tostockeditscreen(View view) {
         Intent intent = new Intent(this, StockEditScreen.class);
