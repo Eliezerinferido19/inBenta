@@ -12,9 +12,39 @@ public class StockScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_screen);
+
+//        // In your activity or fragment
+//        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//
+//// Create an instance of your custom adapter and set it on the RecyclerView
+//        MyAdapter adapter = new MyAdapter(data); // Create your own adapter by extending RecyclerView.Adapter
+//        recyclerView.setAdapter(adapter);
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////
     public void toregisternewitem(View view) {
         Intent intent = new Intent(this, RegisterNewItem.class);
         startActivity(intent);

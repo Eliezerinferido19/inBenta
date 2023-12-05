@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -45,6 +47,13 @@ public class RegisterNewItem extends AppCompatActivity {
         Spinner sellOptSpinner = findViewById(R.id.sellopt);
         registerNewItemBtn = findViewById(R.id.btn_registernewitem);
 
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+
+// Assuming the user has logged in
+        FirebaseUser currentUser = auth.getCurrentUser();
+        String userId = currentUser.getUid();
+
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
         // Set up the register button click listener
@@ -73,7 +82,9 @@ public class RegisterNewItem extends AppCompatActivity {
                 newItem.put("sellOptSpner", selectedSpinner3Item);
 
                 // Add the new item to Firestore
-                db.collection("items")
+                db.collection("users")
+                        .document(userId)
+                        .collection("items")
                         .add(newItem)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
