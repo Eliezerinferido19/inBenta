@@ -80,7 +80,7 @@ public class RegisterNewItem extends AppCompatActivity {
                 newItem.put("PurchaseUomSpnr", selectedSpinner1Item);
                 newItem.put("selectSellOptSpner", selectedSpinner2Item);
                 newItem.put("sellOptSpner", selectedSpinner3Item);
-
+                //new
                 // Add the new item to Firestore
                 db.collection("users")
                         .document(userId)
