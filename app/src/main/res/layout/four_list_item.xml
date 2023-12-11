@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="138dp"
+    tools:layout_editor_absoluteY="-206dp">
+
+    <TextView
+        android:id="@+id/itemlistTV1"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Item\nName"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemlistTV2"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="List\nPrice"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/itemlistTV1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemlistTV3"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Avail. Qty."
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/itemlistTV2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemlistTV4"
+        android:layout_width="31dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/minusItem"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/addItem"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/itemlistTV4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/add__1_" />
+
+    <ImageView
+        android:id="@+id/minusItem"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/itemlistTV3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/minus" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

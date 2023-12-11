@@ -1,89 +1,139 @@
 package com.test.inbenta;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
 
 public class StockScreen extends AppCompatActivity {
+    static final String TAG = "StockScreen";
+    private ArrayList<Item> itemList;
+    private RecyclerView recyclerView;
+    private recyclerAdapter adapter;
+    private FirebaseFirestore db;
+    private FirebaseAuth auth;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_screen);
 
-//        // In your activity or fragment
-//        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//// Create an instance of your custom adapter and set it on the RecyclerView
-//        MyAdapter adapter = new MyAdapter(data); // Create your own adapter by extending RecyclerView.Adapter
-//        recyclerView.setAdapter(adapter);
+        itemList = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerViewItems);
+
+        db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+
+        setRecyclerView();
+        retrieveItemsForUser();
+
+    }
+
+
+
+    private void retrieveItemsForUser() {
+        FirebaseUser currentUser = auth.getCurrentUser();
+        String userId = currentUser.getUid(); // getUid
+        db.collection("users")
+                .document(userId)//or userId
+                .collection("items")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                String itemName = document.getString("ItemName");
+                                Double listPrice = document.getDouble("PurchasePrice");
+                                Double retailPrice = document.getDouble("RetailPrice");
+                                Long stockQtyLong = document.getLong("StockQuantity");
+                                Long soldQtyLong = document.getLong("soldQty");
+
+                                // Check for null values before converting
+                                int stockQty = (stockQtyLong != null) ? stockQtyLong.intValue() : 0;
+                                int soldQty = (soldQtyLong != null) ? soldQtyLong.intValue() : 0;
+
+
+                                Log.d(TAG, "Item: " + itemName + ", List Price: " + listPrice + ", Retail Price: " + retailPrice
+                                        + ", Stock Quantity: " + stockQty + ", Sold Quantity: " + soldQty);
+
+                                itemList.add(new Item(itemName, listPrice, retailPrice, stockQty, soldQty));
+
+                            }
+                            adapter.notifyDataSetChanged();
+
+                        } else {
+                            Toast.makeText(StockScreen.this,"error cant get any data",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////////////////////////
-    public void toregisternewitem(View view) {
-        Intent intent = new Intent(this, RegisterNewItem.class);
-        startActivity(intent);
-    }
-    //to stock edit screen
-    public void tostockeditscreen(View view) {
-        Intent intent = new Intent(this, StockEditScreen.class);
-        startActivity(intent);
-    }
-    public void toregisternewitemscreen(View view) {
-        Intent intent = new Intent(this, RegisterNewItem.class);
-        startActivity(intent);
+    private void setRecyclerView() {
+        adapter = new recyclerAdapter(itemList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 
-    //Menu option start
-    //to Home screen
-    public void tohomescreen(View view) {
-        Intent intent = new Intent(this, HomeScreen.class);
-        startActivity(intent);
+
+    // Navigation methods
+
+    public void navigateTo(Class<?> cls) {
+        startActivity(new Intent(this, cls));
     }
-    //to Restock screen
-    public void torestockscreen(View view) {
-        Intent intent = new Intent(this, RestockScreen.class);
-        startActivity(intent);
+
+    public void toRegisterNewItem(View view) {
+        navigateTo(RegisterNewItem.class);
     }
-    //to Sell screen
-    public void tosellscreen(View view) {
-        Intent intent = new Intent(this, SellScreen.class);
-        startActivity(intent);
+
+//    public void toStockEditScreen(View view) {
+//        navigateTo(StockEditScreen.class);
+//    }
+
+    public void toHomeScreen(View view) {
+        navigateTo(HomeScreen.class);
     }
-    //to Stock screen
-    public void tostockscreen(View view) {
-        Intent intent = new Intent(this, StockScreen.class);
-        startActivity(intent);
+
+    public void toRestockScreen(View view) {
+        navigateTo(RestockScreen.class);
     }
-    //to Profile screen
-    public void toprofilescreen(View view) {
-        Intent intent = new Intent(this, ProfileScreen.class);
-        startActivity(intent);
+
+    public void toSellScreen(View view) {
+        navigateTo(SellScreen.class);
     }
-    // Menu option end >>>
+
+    public void toProfileScreen(View view) {
+        navigateTo(ProfileScreen.class);
+    }
 }

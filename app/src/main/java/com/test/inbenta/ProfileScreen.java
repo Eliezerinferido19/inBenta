@@ -2,6 +2,7 @@ package com.test.inbenta;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,23 +13,30 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileScreen extends AppCompatActivity {
     FirebaseAuth auth;
-    TextView textView;
+    TextView userdetailtxt, userid;
     FirebaseUser user;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_screen);
         auth = FirebaseAuth.getInstance();
-        textView = findViewById(R.id.user_details);
+        userdetailtxt = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
+
+
+
         if (user == null){
             Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
             startActivity(intent);
             finish();
         } else {
-            textView.setText(user.getEmail());
+
+            userdetailtxt.setText(user.getEmail());
+
+
         }
 
     }

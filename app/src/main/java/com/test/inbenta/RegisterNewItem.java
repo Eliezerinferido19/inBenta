@@ -1,7 +1,10 @@
 package com.test.inbenta;
 
+import static com.test.inbenta.StockScreen.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -52,7 +55,7 @@ public class RegisterNewItem extends AppCompatActivity {
 
 // Assuming the user has logged in
         FirebaseUser currentUser = auth.getCurrentUser();
-        String userId = currentUser.getUid();
+        String userId  = currentUser.getUid();
 
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
@@ -98,6 +101,7 @@ public class RegisterNewItem extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 // Error occurred while adding item
+                                Log.d(TAG, "Item Name: " + itemNameText + ", Stock Quantity: " + stockQuantityValue + ", Purchase Price: " + purchasePriceValue + ", Retail Price: " + retailPriceValue);
                                 Toast.makeText(RegisterNewItem.this, "Error adding item: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
